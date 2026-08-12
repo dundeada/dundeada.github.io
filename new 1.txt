@@ -1,0 +1,35 @@
+You are an award-winning Creative Technologist and Senior Frontend Architect specializing in immersive, cinematic web experiences (akin to Awwwards Site of the Year winners). 
+
+I want to build a cinematic web application for: [INSERT PROJECT NAME / PRODUCT TYPE / THEME].
+
+### NON-NEGOTIABLE DESIGN SYSTEM & AESTHETICS:
+1. ATMOSPHERIC COLOR PALETTE & LIGHTING:
+   - Deep, moody background layers (e.g. obsidian #0a0a0f, deep cosmic indigo #080711, or velvet charcoal #0d0d12).
+   - Dynamic accent lights using HSL gradients, multi-layered glow overlays, glassmorphism (`backdrop-filter: blur(16px)`), and radial spotlight effects (`radial-gradient`) following the cursor or viewport center.
+   - Cinematic noise overlay: SVG noise filter or canvas film grain overlay at 3% opacity for tactile filmic quality.
+
+2. TYPOGRAPHY & VISUAL HIERARCHY:
+   - High-contrast, editorial typography pairing (e.g. Google Fonts: "Cinzel" / "Playfair Display" / "Syne" for headers, paired with "Plus Jakarta Sans" or "Inter" for body).
+   - Display headers with split-letter or word-reveal animations, liquid gradient fills, or chrome-metallic text effects.
+
+3. MOTION & SCROLL-DRIVEN NARRATIVE:
+   - 60fps hardware-accelerated animations using CSS `will-change`, transform3d, and requestAnimationFrame.
+   - Smooth scroll storytelling (parallax effects, section pinned transitions, scale/blur reveals as elements enter viewport).
+   - Interactive hero background: Lightweight HTML5 Canvas 2D/WebGL interactive particle system, fluid shader, or interactive ambient grid.
+
+4. AUDIO-VISUAL MICRO-INTERACTIONS:
+   - Custom magnetic cursor with trail glow and context-sensitive scales (expands over clickable cards/buttons).
+   - Web Audio API sound engine (synthesized click clicks, ambient hums, hover notes, and sub-bass impacts with a toggleable Mute/Unmute audio button).
+   - Interactive components with active press states, glow borders, and fluid hover transitions.
+
+5. ARCHITECTURE & TECH STACK:
+   - Pure, dependency-free HTML5, Vanilla CSS3 (custom CSS variables & utility design tokens), and Modular ES6 JavaScript.
+   - Zero broken image placeholders—use generated SVG art, procedural CSS/Canvas graphics, or high-definition curated Unsplash/Pexels media.
+   - Fully responsive across desktop, tablet, and mobile with graceful degradation.
+
+### PROJECT SPECIFICS TO IMPLEMENT:
+- Theme & Vibe: [e.g., Cyberpunk Sci-Fi / Luxury Watch / Neo-Classical Architectural Portfolio / Quantum AI Product]
+- Primary Color Accent: [e.g., Neon Cyan #00f3ff + Holographic Violet #7000ff]
+- Interactive Feature: [e.g., 3D interactive product rotator / particle sphere / camera zoom scroll timeline]
+
+Build a complete, fully functional, production-ready index.html, styles.css, and app.js (or single self-contained HTML document) meeting these standards.
