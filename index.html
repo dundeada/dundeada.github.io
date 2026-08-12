@@ -107,7 +107,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: radial-gradient(ellipse at 50% 50%, rgba(0, 243, 255, 0.05) 0%, rgba(112, 0, 255, 0.02) 50%, transparent 100%);
+            background: radial-gradient(ellipse at 50% 50%, rgba(0, 217, 255, 0.08) 0%, rgba(0, 102, 255, 0.03) 50%, transparent 100%);
         }
 
         .hero::before {
@@ -117,9 +117,9 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, transparent 70%);
-            filter: blur(40px);
-            animation: float 8s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.2) 0%, transparent 70%);
+            filter: blur(60px);
+            animation: float 10s ease-in-out infinite;
             pointer-events: none;
         }
 
@@ -130,10 +130,82 @@
             left: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(112, 0, 255, 0.1) 0%, transparent 70%);
-            filter: blur(50px);
-            animation: float-reverse 10s ease-in-out infinite;
+            background: radial-gradient(circle, rgba(0, 102, 255, 0.15) 0%, transparent 70%);
+            filter: blur(70px);
+            animation: float-reverse 12s ease-in-out infinite;
             pointer-events: none;
+        }
+
+        .hero-logo-container {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .logo-spotlight {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-glow-ring {
+            position: absolute;
+            inset: -40px;
+            border: 2px solid rgba(0, 217, 255, 0.4);
+            border-radius: 50%;
+            animation: pulse-ring 3s ease-in-out infinite;
+            box-shadow: 
+                0 0 40px rgba(0, 217, 255, 0.3),
+                inset 0 0 40px rgba(0, 217, 255, 0.1);
+        }
+
+        .logo-glow-ring::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 50%;
+            animation: pulse-ring 4s ease-in-out infinite reverse;
+            box-shadow: 0 0 60px rgba(0, 102, 255, 0.2);
+        }
+
+        .logo-image {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            overflow: hidden;
+            animation: rotate-logo 20s linear infinite;
+            filter: drop-shadow(0 0 30px rgba(0, 217, 255, 0.6)) drop-shadow(0 0 60px rgba(0, 102, 255, 0.4));
+            z-index: 2;
+            box-shadow: 
+                0 0 50px rgba(0, 217, 255, 0.5),
+                inset 0 0 50px rgba(0, 217, 255, 0.1),
+                0 20px 60px rgba(0, 0, 0, 0.8);
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            animation: subtle-scale 6s ease-in-out infinite;
+        }
+
+        .logo-spotlight::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 217, 255, 0.3), transparent);
+            filter: blur(20px);
+            animation: spotlight-pulse 2s ease-in-out infinite;
         }
 
         .hero-content {
@@ -144,9 +216,10 @@
             padding: var(--spacing-lg);
             backdrop-filter: blur(10px);
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(0, 243, 255, 0.2);
+            border: 1px solid rgba(0, 217, 255, 0.2);
             border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0, 243, 255, 0.1), inset 0 0 20px rgba(112, 0, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 217, 255, 0.1), inset 0 0 20px rgba(0, 102, 255, 0.05);
+            margin-top: var(--spacing-lg);
         }
 
         .hero-canvas {
@@ -757,6 +830,46 @@
             }
         }
 
+        @keyframes rotate-logo {
+            from {
+                transform: rotate(0deg) scale(1);
+            }
+            to {
+                transform: rotate(360deg) scale(1);
+            }
+        }
+
+        @keyframes subtle-scale {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.7;
+            }
+        }
+
+        @keyframes spotlight-pulse {
+            0%, 100% {
+                opacity: 0.3;
+                filter: blur(20px);
+            }
+            50% {
+                opacity: 0.6;
+                filter: blur(15px);
+            }
+        }
+
         @keyframes glow-pulse {
             0%, 100% {
                 box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
@@ -782,9 +895,29 @@
                 --spacing-xl: 3rem;
             }
 
+            .logo-spotlight {
+                width: 200px;
+                height: 200px;
+            }
+
+            .logo-glow-ring {
+                inset: -30px;
+            }
+
+            .logo-glow-ring::before {
+                inset: -15px;
+            }
+
+            .logo-image {
+                width: 170px;
+                height: 170px;
+                filter: drop-shadow(0 0 20px rgba(0, 217, 255, 0.5)) drop-shadow(0 0 40px rgba(0, 102, 255, 0.3));
+            }
+
             .hero-content {
                 padding: var(--spacing-md);
                 border-radius: 12px;
+                margin-top: var(--spacing-md);
             }
 
             .hero-title {
@@ -821,6 +954,16 @@
             .hero::before,
             .hero::after {
                 display: none;
+            }
+
+            .logo-spotlight {
+                width: 160px;
+                height: 160px;
+            }
+
+            .logo-image {
+                width: 140px;
+                height: 140px;
             }
 
             .hero-subtitle {
@@ -863,12 +1006,20 @@
         <!-- Hero Section -->
         <section class="hero">
             <canvas class="hero-canvas interactive" id="particleCanvas"></canvas>
-            <div class="hero-content scroll-reveal">
-                <h1 class="hero-title">Drive Your Journey</h1>
-                <p class="hero-subtitle">Premium Car Rentals in St Vincent</p>
-                <div class="hero-cta">
-                    <button class="btn btn-primary" id="exploreBtn">Book Now</button>
-                    <button class="btn btn-secondary" id="learnBtn">View Fleet</button>
+            <div class="hero-logo-container">
+                <div class="logo-spotlight">
+                    <div class="logo-glow-ring"></div>
+                    <div class="logo-image scroll-reveal">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' fill='%230a0e1a'/%3E%3Ccircle cx='120' cy='120' r='110' fill='%23ff0000' opacity='0.1'/%3E%3Ctext x='50%25' y='45%25' font-family='Arial, sans-serif' font-size='24' fill='%23ff0066' text-anchor='middle' font-weight='bold' letter-spacing='2'%3EELS AUTO%3C/text%3E%3Ctext x='50%25' y='65%25' font-family='Arial, sans-serif' font-size='18' fill='%23ff0066' text-anchor='middle' font-weight='bold'%3ERENTAL%3C/text%3E%3Ccircle cx='120' cy='100' r='25' fill='none' stroke='%23ff0066' stroke-width='2'/%3E%3Cpath d='M 110 95 L 130 100 L 110 105 Z' fill='%23ff0066'/%3E%3Ctext x='50%25' y='85%25' font-family='Arial, sans-serif' font-size='12' fill='%23a8b5c7' text-anchor='middle'%3EHERE TO SERVE YOU%3C/text%3E%3C/svg%3E" alt="Els Auto Rentals Logo">
+                    </div>
+                </div>
+                <div class="hero-content scroll-reveal" style="animation-delay: 0.2s;">
+                    <h1 class="hero-title">Drive Your Journey</h1>
+                    <p class="hero-subtitle">Premium Car Rentals in St Vincent</p>
+                    <div class="hero-cta">
+                        <button class="btn btn-primary" id="exploreBtn">Book Now</button>
+                        <button class="btn btn-secondary" id="learnBtn">View Fleet</button>
+                    </div>
                 </div>
             </div>
         </section>
